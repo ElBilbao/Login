@@ -1,17 +1,37 @@
-<h1>Login</h1>
-<% if(messages.error) {%>
-  <%= messages.error %>
-  <% } %>
-<form action="/login" method="POST">
-  <div>
-    <label for="email">Email</label>
-    <input type="email" id="email" name="email" required></input>
-  </div>
-  <div>
-    <label for="password">Password</label>
-    <input type="password" id="password" name="password" required></input>
-  </div>
-  <button type="submit">Submit</button>
-</form>
+<style>
+.container {
+  height: abs;
+  position: relative;
+}
 
-<a href="/register">Register</a>
+.center {
+  margin: 0;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+</style>
+
+<div class="container">
+  <center>
+    <h1>Login</h1>
+    <% if(messages.error) {%>
+      <%= messages.error %>
+      <% } %>
+    <form action="/login" method="POST">
+      <div style="padding-bottom: 10px">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required></input>
+      </div>
+      <div style="padding-bottom: 10px">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required></input>
+      </div>
+      <button type="submit" style="width: 60px; height: 30px; border-radius: 8px;">Submit</button>
+    </form>
+
+    <a href="/register">Register</a>
+  </center>
+</div>
