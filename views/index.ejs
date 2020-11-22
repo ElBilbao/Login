@@ -1,6 +1,8 @@
 <center>
   <h1>Hi <%= name %></h1>
-
+  <div><% if(locals.message != '') {%>
+    <%= locals.message %>
+    <% } %></div>
   <div style="padding-bottom: 10px">
     <form action="/changePassword" method="POST">
       <div style="padding-bottom: 10px">
