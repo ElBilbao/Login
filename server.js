@@ -17,7 +17,12 @@ initializePassport(
   id => users.find(user => user.id === id)
 )
 
-const users = []
+const users = [{
+    id: '1606072990503',
+    name: 'a',
+    email: 'a@a',
+    password: '$2b$10$kHrR4ExbuSKvC2GIw4nc0um8wvtMjryExhGjf5mDaYDJFDWMdwKvC'
+  }]
 
 app.set('view-engine', 'ejs')
 app.use(express.urlencoded({extended: false}))
@@ -46,10 +51,18 @@ app.post('/login', checkNotAuthenticated, passport.authenticate('local', {
 }))
 
 app.get('/register', checkNotAuthenticated, (req, res) => {
-  res.render('register.ejs')
+  res.render('register.ejs', {errormessage: ''})
 })
 
 app.post('/register', checkNotAuthenticated, async (req, res) => {
+  //res.errorMessage = ''
+  var user = users.find(user => user.email === req.body.email)
+
+  if(user) {
+    console.log('Same email')
+    return res.render('register.ejs', { errormessage: 'Email is already in use'});
+  }
+
   try {
     const hashedPassword = await bcrypt.hash(req.body.password, 10)
     users.push({
@@ -63,6 +76,14 @@ app.post('/register', checkNotAuthenticated, async (req, res) => {
     res.redirect('/register')
   }
   console.log(users)
+})
+
+app.post('/changePassword', checkAuthenticated, async (req, res) => {
+  console.log("Password changed")
+  var user = users.find(user => user.name === req.user.name)
+  const hashedPassword = await bcrypt.hash(req.body.newPassword, 10)
+  user.password = hashedPassword
+  res.redirect('/')
 })
 
 app.delete('/logout', (req, res) => {

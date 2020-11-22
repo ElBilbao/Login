@@ -1,6 +1,21 @@
 <center>
   <h1>Hi <%= name %></h1>
-  <form action="/logout?_method=DELETE" method="POST">
-    <button type="submit">Log Out</button>
-  </form>
+
+  <div style="padding-bottom: 10px">
+    <form action="/changePassword" method="POST">
+      <div style="padding-bottom: 10px">
+        <label for="password">New Password</label>
+        <input type="password" id="password" name="newPassword" required></input>
+      </div>
+      <div>
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+
+  <div>
+    <form action="/logout?_method=DELETE" method="POST">
+      <button type="submit">Log Out</button>
+    </form>
+  </div>
 </center>
