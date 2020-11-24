@@ -1,23 +1,113 @@
+
+<style>
+  .invisible {
+    display: none;
+    visibility: hidden;
+   }
+
+   .container {
+     width:40%;
+     height:47%;
+     background-color: #add8e6;
+     margin: auto;
+     border: 2px solid black;
+     box-shadow: 5px 5px gray;
+     border-radius: 8px;
+   }
+
+   .center {
+     margin: auto;
+     position: relative;
+     top: 50%;
+     left: 50%;
+     down: 50%;
+     -ms-transform: translate(-50%, -50%);
+     transform: translate(-50%, -50%);
+   }
+
+   .gap {
+     width:20%;
+     background:none;
+     height:20%;
+     display:inline-block;
+   }
+
+   .smallgap {
+     height: 4%;
+   }
+
+   h1 {
+     font-family: Arial, sans-serif;
+     font-weight: bold;
+     font-size: 35;
+     margin: 10px;
+   }
+
+   input {
+     border: 1px solid black;
+     border-radius: 4px;
+     height: 8%;
+     font-family: Arial, sans-serif;
+   }
+
+   button {
+     font-size: 14px;
+     font-weight: bold;
+     border: 1px solid black;
+     border-radius: 4px;
+     height: 9%;
+     width: 15%;
+     font-family: Arial, sans-serif;
+     font-align: center;
+     margin: 0px;
+     padding: 0px;
+   }
+
+   h5 {
+     padding: 0px;
+     font-family: Arial, sans-serif;
+     font-size: 13px;
+     font-weight: Normal;
+   }
+   label {
+     font-family: Arial, sans-serif;
+   }
+   href {
+     font-family: Arial, sans-serif;
+   }
+
+   button:hover {
+     background-color: gray;
+  }
+  .errormessage {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+  }
+
+</style>
+
+<div class="gap"></div>
+<div class="container">
 <center>
-  <h1>Hi <%= name %></h1>
-  <div><% if(locals.message != '') {%>
+  <h1>Hi <%= name %>!</h1>
+  <div class="errormessage"><% if(locals.message != '') {%>
     <%= locals.message %>
     <% } %></div>
-  <div style="padding-bottom: 10px">
+  <div style="padding-bottom: none">
     <form action="/changePassword" method="POST">
       <div style="padding-bottom: 10px">
-        <label for="password">New Password</label>
+        <label for="password">New Password: </label>
         <input type="password" id="password" name="newPassword" required></input>
       </div>
-      <div>
-        <button type="submit">Submit</button>
-      </div>
+        <button type="submit">SUBMIT</button>
     </form>
+  </div>
+  <div style="padding: 1px;">
+  <form class="btn-group inline" action="/logout?_method=DELETE" method="POST">
+    <button type="submit">LOG OUT</button>
+  </form>
+  <img alt="Walk Llama Sticker by Megan McNulty for iOS &amp; Android | GIPHY" class="n3VNCb" src="https://media1.giphy.com/media/8w3vw7r83iwi1jmRIB/source.gif" data-noaft="1" jsname="HiaYvf" jsaction="load:XAeZkd;" style="width: 143.364px; height: 119px; margin: 0px;">
   </div>
 
-  <div>
-    <form action="/logout?_method=DELETE" method="POST">
-      <button type="submit">Log Out</button>
-    </form>
-  </div>
 </center>
+</div>

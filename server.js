@@ -83,7 +83,7 @@ app.post('/changePassword', checkAuthenticated, async (req, res) => {
   var user = users.find(user => user.name === req.user.name)
   const hashedPassword = await bcrypt.hash(req.body.newPassword, 10)
   user.password = hashedPassword
-  res.render('index.ejs', {name: user.name, message: 'Password updated'})
+  res.render('index.ejs', {name: user.name, message: 'Password updated!'})
 })
 
 app.delete('/logout', (req, res) => {

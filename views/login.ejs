@@ -1,37 +1,109 @@
 <style>
 .container {
-  height: abs;
-  position: relative;
+  width:40%;
+  height:47%;
+  background-color: #add8e6;
+  margin: auto;
+  border: 2px solid black;
+  box-shadow: 5px 5px gray;
+  border-radius: 8px;
 }
 
 .center {
-  margin: 0;
+  margin: auto;
   position: relative;
   top: 50%;
   left: 50%;
+  down: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
-</style>
 
+.gap {
+  width:20%;
+  background:none;
+  height:20%;
+  display:inline-block;
+}
+
+.smallgap {
+  height: 6%;
+}
+
+h1 {
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  font-size: 35;
+}
+
+input {
+  border: 1px solid black;
+  border-radius: 4px;
+  height: 8%;
+  font-family: Arial, sans-serif;
+}
+
+button {
+  font-size: 16px;
+  font-weight: bold;
+  border: 1px solid black;
+  border-radius: 4px;
+  height: 11%;
+  width: 15%;
+  font-family: Arial, sans-serif;
+  font-align: center;
+}
+
+h5 {
+  padding: 0px;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  font-weight: Normal;
+}
+
+label {
+  font-family: Arial, sans-serif;
+}
+
+button:hover {
+  background-color: gray;
+}
+
+.errormessage {
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  margin: 0px;
+  padding: 0px;
+}
+
+.hrefclass {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+}
+
+
+
+</style>
+<div class="gap"></div>
 <div class="container">
   <center>
-    <h1>Login</h1>
-    <% if(messages.error) {%>
+    <h1>Login Form</h1>
+    <div class="errormessage"><% if(messages.error) {%>
       <%= messages.error %>
-      <% } %>
+      <% } %></div>
+      <h5>Fill out the form below to login to your super AWESOME imaginary session!</h5>
     <form action="/login" method="POST">
       <div style="padding-bottom: 10px">
-        <label for="email">Email</label>
+        <label for="email">Email:</label>
         <input type="email" id="email" name="email" required></input>
       </div>
       <div style="padding-bottom: 10px">
-        <label for="password">Password</label>
+        <label for="password">Password:</label>
         <input type="password" id="password" name="password" required></input>
       </div>
-      <button type="submit" style="width: 60px; height: 30px; border-radius: 8px;">Submit</button>
+      <div class="smallgap"></div>
+      <button type="submit">SUBMIT</button>
     </form>
-
-    <a href="/register">Register</a>
+    <a class="hrefclass" href="/register">Register</a>
   </center>
 </div>
